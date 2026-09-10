@@ -1,0 +1,61 @@
+import { CaseStudyHeader } from "@/components/case-study";
+
+export const metadata = {
+  title: "Rethinking onboarding for a fintech app",
+  description:
+    "Cut time-to-first-transaction by 40% by redesigning account setup around progressive disclosure and clearer trust signals.",
+};
+
+<CaseStudyHeader slug="sample-project" />
+
+## Overview
+
+This is a sample case study. Replace it with your own story. A useful structure
+for product design case studies:
+
+1. **Context** — what's the product, who's the team, what triggered this work.
+2. **Problem** — what was broken, and how you knew (data, research, support tickets).
+3. **Approach** — how you framed it, what you explored, what you cut.
+4. **Solution** — the design, with annotated screens and key decisions.
+5. **Impact** — what changed after launch, and what you'd do differently.
+
+## Context
+
+The company offered a consumer banking app. New users had to complete a
+seven-step setup flow before they could move any money, and roughly a third of
+them dropped off before finishing.
+
+## Problem
+
+Through funnel analysis and five moderated usability sessions, three issues
+surfaced:
+
+- Identity verification came too early, before users understood the value.
+- Error messages were written for compliance, not for people.
+- Nothing reassured users their money and data were safe.
+
+> "I got to the ID photo screen and just closed the app. I wasn't ready to hand
+> that over yet." — Participant 3
+
+## Approach
+
+I reframed onboarding as *earning the right to ask for more*. Each step should
+deliver something before requesting sensitive information.
+
+![Placeholder for a flow diagram](/projects/sample-project/flow.png)
+
+## Solution
+
+The redesigned flow front-loads a personalized preview and defers verification
+until the user initiates their first transfer. Trust signals (FDIC insurance,
+encryption, a real support contact) appear contextually rather than in a wall of
+fine print.
+
+## Impact
+
+- Time-to-first-transaction dropped **40%**.
+- Onboarding completion rose from **68% to 84%**.
+- Support tickets tagged *"verification"* fell by a third.
+
+If I did it again, I'd invest earlier in a shared component for form validation —
+we rebuilt it three times across surfaces.
