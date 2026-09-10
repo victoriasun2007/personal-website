@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pkill -f \"next dev\")",
+      "Bash(git -c 'user.name=Victoria Sun' -c user.email=victoria.sun.2007@gmail.com commit -q -m ' *)"
+    ]
+  }
+}

@@ -1,73 +1,62 @@
-# Portfolio
+# Victoria Sun — Portfolio
 
-Personal portfolio website for showcasing product design work.
-Built with **Next.js 16** (App Router), **TypeScript**, **Tailwind CSS v4**, and **MDX** case studies.
+Personal portfolio site. **Next.js 16** (App Router) · TypeScript · Tailwind CSS v4 · MDX case studies.
 
-## Getting started
+## Run it
 
 ```bash
 npm install
-npm run dev
+npm run dev      # http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
+Other scripts: `npm run build`, `npm run start`, `npm run lint`.
 
-## Scripts
+## Where things live
 
-| Command         | What it does                        |
-| --------------- | ----------------------------------- |
-| `npm run dev`   | Start the dev server                |
-| `npm run build` | Production build                    |
-| `npm run start` | Serve the production build          |
-| `npm run lint`  | Run ESLint                          |
+| What | File |
+| --- | --- |
+| Name, role, bio, email, links, résumé path | [src/lib/site.ts](src/lib/site.ts) |
+| Project list (cards on home + `/work`) | [src/content/projects.ts](src/content/projects.ts) |
+| Home page | [src/app/page.tsx](src/app/page.tsx) |
+| About (education, experience, skills) | [src/app/about/page.tsx](src/app/about/page.tsx) |
+| A case study | `src/app/work/(case-studies)/<slug>/page.mdx` |
+| Case-study images | `public/projects/<slug>/` |
+| Colors / theme tokens | [src/app/globals.css](src/app/globals.css) |
 
-## Making it yours
+## Case studies
 
-Everything you'll edit regularly lives in a few places:
+Each project is one MDX file. It uses two components:
 
-- **`src/lib/site.ts`** — your name, role, bio, location, email, social links, and nav.
-- **`src/content/projects.ts`** — the project registry. Each entry drives the cards
-  on the home and `/work` pages (title, summary, year, role, tags, cover image,
-  featured flag).
-- **`src/app/work/(case-studies)/<slug>/page.mdx`** — the full case study for each
-  project. The folder name must match the `slug` in `projects.ts`.
-- **`public/projects/<slug>/`** — images for a case study. Reference them in MDX as
-  `![alt](/projects/<slug>/image.png)`.
+- `<CaseStudyHeader slug="…" />` — pulls the title block from `projects.ts`.
+- `<Figure src="…" alt="…" caption="…" />` — an image that breaks out wider
+  than the text column. Add `priority` on the first one.
 
-### Adding a new project
+The `(case-studies)` folder is a route group: it gives every case study a shared
+`prose` layout without adding a segment to the URL (`/work/<slug>`).
 
-1. Add an entry to the `projects` array in `src/content/projects.ts` with a unique `slug`.
-2. Create `src/app/work/(case-studies)/<slug>/page.mdx` (copy `sample-project` as a template).
-3. Drop images into `public/projects/<slug>/`.
+### To add a project
 
-### Pages
+1. Add an entry to `projects` in [src/content/projects.ts](src/content/projects.ts) with a unique `slug`.
+2. Create `src/app/work/(case-studies)/<slug>/page.mdx` (copy an existing one).
+3. Put images in `public/projects/<slug>/` and reference them from `<Figure>`.
 
-| Route            | File                                                   |
-| ---------------- | ------------------------------------------------------ |
-| `/`              | `src/app/page.tsx` — hero + selected work              |
-| `/work`          | `src/app/work/page.tsx` — all published projects       |
-| `/work/<slug>`   | `src/app/work/(case-studies)/<slug>/page.mdx`          |
-| `/about`         | `src/app/about/page.tsx` — bio + experience            |
+## Still to do
 
-`(case-studies)` is a [route group](https://nextjs.org/docs/app/building-your-application/routing/route-groups) —
-it applies a shared layout (`prose` styling + back link) without appearing in the URL.
+- [ ] **Résumé** — drop your PDF at `public/resume.pdf`. The nav/footer/about
+      links point there. (To hide the links instead, set `resumeUrl: null` in
+      `src/lib/site.ts`.)
+- [ ] **Raizz images** — the Raizz case study currently shows a gradient
+      placeholder. Export screens from `New Raizz App Design.fig` at ~2200px
+      wide, save as JPGs in `public/projects/raizz/`, then swap the placeholder
+      `<div>` in `raizz/page.mdx` for `<Figure>` calls like the other studies.
+- [ ] **Set your domain** — update `url` in `src/lib/site.ts` (used for
+      metadata, sitemap, robots).
+- [ ] Check project **years** in `projects.ts` (Eventi is set to 2026).
+- [ ] The XR Safewear / Opus / Eventi images are rendered from your portfolio
+      deck. Replace with clean Figma exports when you have time.
 
-## Theming
+## Deploy (Vercel)
 
-Colors are CSS custom properties in `src/app/globals.css` (`--background`,
-`--foreground`, `--muted`, `--border`, `--accent`), with a `prefers-color-scheme`
-dark variant. Tailwind reads them via `@theme` (`bg-background`, `text-muted`, …).
-Fonts are set in `src/app/layout.tsx` (currently Geist).
-
-## Deploying to Vercel
-
-1. Push this repo to GitHub.
-2. Import it at [vercel.com/new](https://vercel.com/new) — no configuration needed.
-3. Set `site.url` in `src/lib/site.ts` to your production domain (used for
-   metadata, sitemap, and robots).
-
-## SEO
-
-- Per-page metadata via the Next.js Metadata API (see each `page.tsx` / MDX `export const metadata`).
-- `src/app/sitemap.ts` and `src/app/robots.ts` generate `/sitemap.xml` and `/robots.txt`.
-- Open Graph / Twitter card defaults in `src/app/layout.tsx`.
+1. Push to GitHub.
+2. Import at [vercel.com/new](https://vercel.com/new) — no config needed.
+3. Add your custom domain.

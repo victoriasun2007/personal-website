@@ -20,6 +20,16 @@ export function SiteHeader() {
               {item.label}
             </Link>
           ))}
+          {site.resumeUrl ? (
+            <a
+              href={site.resumeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted transition-colors hover:text-foreground"
+            >
+              Résumé
+            </a>
+          ) : null}
         </nav>
       </Container>
     </header>

@@ -13,9 +13,16 @@ export default function Home() {
           <p className="text-sm font-medium uppercase tracking-widest text-muted">
             {site.role} · {site.location}
           </p>
-          <h1 className="mt-6 max-w-3xl text-4xl font-semibold leading-tight tracking-tight sm:text-5xl">
-            {site.intro}
+          <h1 className="mt-6 max-w-3xl text-3xl font-semibold leading-tight tracking-tight sm:text-4xl">
+            Product designer and aspiring PM, studying Information Systems and
+            Human-Computer Interaction at Carnegie Mellon.
           </h1>
+          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted">
+            I like owning the whole arc of a product — from the first messy
+            problem statement to the screens people use every day. Lately:
+            redesigning an AI sleep app, and concepts for wearables and student
+            tools.
+          </p>
           <div className="mt-10 flex flex-wrap gap-4 text-sm">
             <Link
               href="/work"

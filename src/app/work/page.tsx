@@ -16,8 +16,9 @@ export default function WorkPage() {
           Work
         </h1>
         <p className="mt-3 max-w-xl text-muted">
-          A few projects I can talk about publicly. Reach out if you&apos;d like
-          to see more, including NDA work.
+          Internship work, self-initiated concepts, and team projects. Some
+          details are adapted for NDA — happy to walk through the rest over a
+          call.
         </p>
         <div className="mt-12 grid gap-8 sm:grid-cols-2">
           {publishedProjects.map((project) => (

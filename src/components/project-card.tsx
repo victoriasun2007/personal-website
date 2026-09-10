@@ -3,7 +3,8 @@ import Image from "next/image";
 import type { Project } from "@/content/projects";
 
 export function ProjectCard({ project }: { project: Project }) {
-  const { slug, title, summary, year, tags, cover, gradient } = project;
+  const { slug, title, summary, year, context, tags, cover, gradient } =
+    project;
 
   return (
     <Link
@@ -31,9 +32,12 @@ export function ProjectCard({ project }: { project: Project }) {
 
       <div className="flex flex-col gap-2 px-2 pb-2">
         <div className="flex items-baseline justify-between gap-4">
-          <h3 className="text-base font-semibold tracking-tight">{title}</h3>
+          <p className="text-xs font-medium uppercase tracking-widest text-muted">
+            {context}
+          </p>
           <span className="shrink-0 text-sm text-muted">{year}</span>
         </div>
+        <h3 className="text-base font-semibold tracking-tight">{title}</h3>
         <p className="text-sm leading-relaxed text-muted">{summary}</p>
         <ul className="mt-1 flex flex-wrap gap-2">
           {tags.map((tag) => (

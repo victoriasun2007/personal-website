@@ -23,6 +23,16 @@ export function SiteFooter() {
               {s.label}
             </a>
           ))}
+          {site.resumeUrl ? (
+            <a
+              href={site.resumeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted transition-colors hover:text-foreground"
+            >
+              Résumé
+            </a>
+          ) : null}
         </div>
       </Container>
       <Container className="mt-8">

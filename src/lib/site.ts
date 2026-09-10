@@ -5,20 +5,24 @@
 export const site = {
   name: "Victoria Sun",
   role: "Product Designer",
-  // Used for <title> templates, Open Graph, and the RSS/sitemap base URL.
-  url: "https://example.com",
+  // Used for <title> templates, Open Graph, and the sitemap/robots base URL.
+  // Set this to your real domain before deploying.
+  url: "https://victoriasun.com",
   description:
-    "Product designer focused on turning complex problems into clear, humane interfaces.",
-  location: "San Francisco, CA",
+    "Victoria Sun is a product designer and aspiring PM studying Information Systems + HCI at Carnegie Mellon. She works across research, interaction, and visual design.",
+  location: "Pittsburgh, PA",
   email: "victoria.sun.2007@gmail.com",
+  // Drop the PDF at public/resume.pdf (or change this path). Set to null to hide.
+  resumeUrl: "/resume.pdf",
   // Short intro shown on the home page.
   intro:
-    "I'm a product designer who cares about the whole arc of a product — from the first messy problem statement to the pixels people tap every day. I work across research, interaction, and visual design.",
+    "I'm a product designer and aspiring PM studying Information Systems and Human-Computer Interaction at Carnegie Mellon. I like owning the whole arc of a product — from the first messy problem statement to the screens people use every day.",
   socials: [
     { label: "Email", href: "mailto:victoria.sun.2007@gmail.com" },
-    { label: "LinkedIn", href: "https://linkedin.com/in/your-handle" },
-    { label: "Dribbble", href: "https://dribbble.com/your-handle" },
-    { label: "Read.cv", href: "https://read.cv/your-handle" },
+    {
+      label: "LinkedIn",
+      href: "https://linkedin.com/in/victoria-sun-171192359",
+    },
   ],
 } as const;
 
