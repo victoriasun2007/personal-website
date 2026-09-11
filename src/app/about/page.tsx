@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Container } from "@/components/container";
+import { Reveal, Magnetic } from "@/components/motion";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -51,34 +52,42 @@ const skills = [
       "SketchUp",
     ],
   },
-  {
-    label: "Engineering",
-    items: ["Python", "Java", "SQL", "HTML / CSS", "R"],
-  },
-  {
-    label: "Languages",
-    items: ["English", "Mandarin"],
-  },
+  { label: "Engineering", items: ["Python", "Java", "SQL", "HTML / CSS", "R"] },
+  { label: "Languages", items: ["English", "Mandarin"] },
 ];
+
+function SectionLabel({ children }: { children: string }) {
+  return (
+    <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-accent">
+      {children}
+    </h2>
+  );
+}
 
 export default function AboutPage() {
   return (
-    <section className="py-16 sm:py-20">
+    <section className="py-16 sm:py-24">
       <Container>
-        <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">
-          About
-        </h1>
+        <Reveal>
+          <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted">
+            About
+          </p>
+          <h1 className="mt-4 max-w-3xl font-display text-3xl leading-tight text-foreground sm:text-4xl">
+            Architect of small, careful decisions — and a swimmer.
+          </h1>
+        </Reveal>
 
-        <div className="mt-8 grid gap-12 sm:grid-cols-[1fr_1.3fr]">
-          <div className="space-y-4 text-muted">
+        <div className="mt-12 grid gap-14 sm:grid-cols-[1fr_1.3fr]">
+          <Reveal className="space-y-4 text-muted">
             <p>{site.intro}</p>
             <p>
               I&apos;m a varsity swimmer at CMU and a 2026 CSCAA Scholar
-              All-American — a lot of how I work (long horizons, steady reps,
-              caring about the last 2%) comes from the pool. Open-water swimming
-              is also where my{" "}
+              All-American. A lot of how I work — long horizons, steady reps,
+              caring about the last 2% — comes from the pool. Open water is also
+              where my{" "}
               <Link
                 href="/work/xr-safewear"
+                data-cursor="pool"
                 className="text-foreground underline-offset-4 hover:underline"
               >
                 XR Safewear
@@ -90,63 +99,50 @@ export default function AboutPage() {
               way to reach me is{" "}
               <a
                 href={`mailto:${site.email}`}
+                data-cursor="pool"
                 className="text-foreground underline-offset-4 hover:underline"
               >
                 email
               </a>
               .
             </p>
-          </div>
+          </Reveal>
 
-          <div className="space-y-12">
-            <div>
-              <h2 className="text-sm font-semibold uppercase tracking-widest text-muted">
-                Education
-              </h2>
+          <div className="space-y-14">
+            <Reveal>
+              <SectionLabel>Education</SectionLabel>
               <div className="mt-5 border-t border-border pt-5">
                 <p className="font-medium">Carnegie Mellon University</p>
                 <p className="text-sm text-muted">
-                  B.S. Information Systems + additional major in
-                  Human-Computer Interaction · Expected 2029
+                  B.S. Information Systems + additional major in Human-Computer
+                  Interaction · Expected 2029
                 </p>
                 <p className="mt-1 text-sm text-muted">
                   Varsity Swimming · 2026 CSCAA Scholar All-American
                 </p>
               </div>
-            </div>
+            </Reveal>
 
-            <div>
-              <h2 className="text-sm font-semibold uppercase tracking-widest text-muted">
-                Experience
-              </h2>
+            <Reveal>
+              <SectionLabel>Experience</SectionLabel>
               <ul className="mt-5 divide-y divide-border border-t border-border">
                 {experience.map((job) => (
-                  <li
-                    key={`${job.org}-${job.period}`}
-                    className="py-5"
-                  >
+                  <li key={`${job.org}-${job.period}`} className="py-5">
                     <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between sm:gap-8">
                       <p className="font-medium">
                         {job.role}
-                        <span className="font-normal text-muted">
-                          {" "}
-                          · {job.org}
-                        </span>
+                        <span className="font-normal text-muted"> · {job.org}</span>
                       </p>
-                      <p className="shrink-0 text-sm text-muted">
-                        {job.period}
-                      </p>
+                      <p className="shrink-0 text-sm text-muted">{job.period}</p>
                     </div>
                     <p className="mt-1.5 text-sm text-muted">{job.note}</p>
                   </li>
                 ))}
               </ul>
-            </div>
+            </Reveal>
 
-            <div>
-              <h2 className="text-sm font-semibold uppercase tracking-widest text-muted">
-                Skills
-              </h2>
+            <Reveal>
+              <SectionLabel>Skills</SectionLabel>
               <dl className="mt-5 space-y-4 border-t border-border pt-5">
                 {skills.map((group) => (
                   <div key={group.label} className="sm:flex sm:gap-8">
@@ -159,17 +155,22 @@ export default function AboutPage() {
                   </div>
                 ))}
               </dl>
-            </div>
+            </Reveal>
 
             {site.resumeUrl ? (
-              <a
-                href={site.resumeUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block rounded-full border border-border px-5 py-2.5 text-sm font-medium transition-colors hover:border-foreground/40"
-              >
-                Download résumé (PDF)
-              </a>
+              <Reveal>
+                <Magnetic strength={0.2}>
+                  <a
+                    href={site.resumeUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-cursor="pool"
+                    className="inline-block rounded-full border border-border px-6 py-3 text-sm font-medium transition-colors hover:border-accent/50"
+                  >
+                    Download résumé (PDF)
+                  </a>
+                </Magnetic>
+              </Reveal>
             ) : null}
           </div>
         </div>

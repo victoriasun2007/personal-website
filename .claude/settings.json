@@ -2,7 +2,27 @@
   "permissions": {
     "allow": [
       "Bash(pkill -f \"next dev\")",
-      "Bash(git -c 'user.name=Victoria Sun' -c user.email=victoria.sun.2007@gmail.com commit -q -m ' *)"
+      "Bash(git -c 'user.name=Victoria Sun' -c user.email=victoria.sun.2007@gmail.com commit -q -m ' *)",
+      "WebFetch(domain:justmckissick.com)",
+      "WebFetch(domain:www.wallofportfolios.in)",
+      "WebSearch",
+      "WebFetch(domain:zainabkabira.com)",
+      "Bash(node -e \"console.log\\(require\\('./node_modules/motion/package.json'\\).version\\)\")",
+      "Read(//Applications/Google Chrome.app/Contents/MacOS/**)",
+      "Read(//Applications/**)",
+      "Read(//Users/ASUS/.cache/**)",
+      "Bash('/Applications/Google Chrome.app/Contents/MacOS/Google Chrome' --headless --disable-gpu --hide-scrollbars --window-size=1440,1000 --virtual-time-budget=4000 --screenshot=/private/tmp/claude-501/-Users-ASUS-Desktop-portfolio/e4bc89df-f3f5-4947-9e81-53ad8765aec0/scratchpad/shots/home2.png http://localhost:3000/)",
+      "Bash('/Applications/Google Chrome.app/Contents/MacOS/Google Chrome' --headless --disable-gpu --hide-scrollbars --window-size=1440,1000 --virtual-time-budget=4000 --screenshot=/private/tmp/claude-501/-Users-ASUS-Desktop-portfolio/e4bc89df-f3f5-4947-9e81-53ad8765aec0/scratchpad/shots/work2.png http://localhost:3000/work)",
+      "Bash('/Applications/Google Chrome.app/Contents/MacOS/Google Chrome' --headless --disable-gpu --hide-scrollbars --window-size=1440,2400 --virtual-time-budget=4000 --screenshot=/private/tmp/claude-501/-Users-ASUS-Desktop-portfolio/e4bc89df-f3f5-4947-9e81-53ad8765aec0/scratchpad/shots/about2.png http://localhost:3000/about)",
+      "Bash('/Applications/Google Chrome.app/Contents/MacOS/Google Chrome' --headless --disable-gpu --hide-scrollbars --window-size=1440,2400 --screenshot=/private/tmp/claude-501/-Users-ASUS-Desktop-portfolio/e4bc89df-f3f5-4947-9e81-53ad8765aec0/scratchpad/shots/about3.png http://localhost:3000/about)",
+      "Bash('/Applications/Google Chrome.app/Contents/MacOS/Google Chrome' --headless --disable-gpu --hide-scrollbars --window-size=1440,2600 --screenshot=/private/tmp/claude-501/-Users-ASUS-Desktop-portfolio/e4bc89df-f3f5-4947-9e81-53ad8765aec0/scratchpad/shots/case3.png http://localhost:3000/work/xr-safewear)",
+      "Bash('/Applications/Google Chrome.app/Contents/MacOS/Google Chrome' --headless --disable-gpu --hide-scrollbars --window-size=1440,1000 --screenshot=/private/tmp/claude-501/-Users-ASUS-Desktop-portfolio/e4bc89df-f3f5-4947-9e81-53ad8765aec0/scratchpad/shots/work3.png http://localhost:3000/work)",
+      "Bash('/Applications/Google Chrome.app/Contents/MacOS/Google Chrome' --headless --disable-gpu --hide-scrollbars --window-size=1440,1300 --screenshot=/private/tmp/claude-501/-Users-ASUS-Desktop-portfolio/e4bc89df-f3f5-4947-9e81-53ad8765aec0/scratchpad/shots/raizz.png http://localhost:3000/work/raizz)",
+      "Bash(tail -100 /tmp/pf-dev.log | grep -iE \"warn|error\" -A3 | head -150)",
+      "Read(//private/tmp/**)",
+      "Bash('/Applications/Google Chrome.app/Contents/MacOS/Google Chrome' --headless --disable-gpu --enable-logging=stderr --v=1 --window-size=1440,900 --virtual-time-budget=2000 --dump-dom http://localhost:3000/work/raizz)",
+      "Read(//tmp/**)",
+      "Bash(grep -n \"hydration\\\\|browser extension\\\\|<p>\\\\|In HTML\" -B5 -A30 /tmp/chrome-console.log | grep -v \"cv_display_link\\\\|shared_image_manager\\\\|VERBOSE1\" | head -120)"
     ]
   }
 }

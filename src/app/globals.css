@@ -2,34 +2,54 @@
 @plugin "@tailwindcss/typography";
 
 /* ---------------------------------------------------------------------------
-   Design tokens
+   Theme tokens — "shallows" (light) and "deep water" (dark)
    --------------------------------------------------------------------------- */
 :root {
-  --background: #fafaf9;
-  --foreground: #1c1917;
-  --muted: #78716c;
-  --border: #e7e5e4;
-  --accent: #1c1917;
+  --background: #eef5f6;
+  --surface: #ffffff;
+  --foreground: #12313a;
+  --muted: #5b7d85;
+  --border: #d8e6e8;
+  --accent: #16899b;
+  --accent-contrast: #ffffff;
+  --glow: 22 137 155; /* rgb of --accent, for rgba() */
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0c0a09;
-    --foreground: #f5f5f4;
-    --muted: #a8a29e;
-    --border: #292524;
-    --accent: #f5f5f4;
+  :root:not([data-theme="light"]) {
+    --background: #061a20;
+    --surface: #0b262d;
+    --foreground: #dcedef;
+    --muted: #7ea7ae;
+    --border: #12333b;
+    --accent: #4bb8c8;
+    --accent-contrast: #04171c;
+    --glow: 75 184 200;
   }
+}
+
+:root[data-theme="dark"] {
+  --background: #061a20;
+  --surface: #0b262d;
+  --foreground: #dcedef;
+  --muted: #7ea7ae;
+  --border: #12333b;
+  --accent: #4bb8c8;
+  --accent-contrast: #04171c;
+  --glow: 75 184 200;
 }
 
 @theme inline {
   --color-background: var(--background);
+  --color-surface: var(--surface);
   --color-foreground: var(--foreground);
   --color-muted: var(--muted);
   --color-border: var(--border);
   --color-accent: var(--accent);
+  --color-accent-contrast: var(--accent-contrast);
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+  --font-display: var(--font-display), Georgia, "Times New Roman", serif;
 }
 
 /* ---------------------------------------------------------------------------
@@ -48,6 +68,72 @@ body {
 }
 
 ::selection {
-  background: var(--foreground);
-  color: var(--background);
+  background: rgb(var(--glow) / 0.28);
+  color: var(--foreground);
+}
+
+.font-display {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+/* Faint grain to make flat gradients feel like water, not plastic. */
+.grain::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ---------------------------------------------------------------------------
+   Custom cursor — a slow water droplet that trails the pointer
+   --------------------------------------------------------------------------- */
+@media (hover: hover) and (pointer: fine) {
+  .has-custom-cursor,
+  .has-custom-cursor * {
+    cursor: none;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Motion
+   --------------------------------------------------------------------------- */
+@keyframes drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  33% {
+    transform: translate3d(4%, -3%, 0) scale(1.08);
+  }
+  66% {
+    transform: translate3d(-3%, 4%, 0) scale(0.96);
+  }
+}
+
+@keyframes sway {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-2%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
 }

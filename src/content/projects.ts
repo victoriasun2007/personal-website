@@ -35,7 +35,6 @@ export const projects: Project[] = [
     context: "AxiLab — Product Design Intern",
     role: "Sole product designer",
     tags: ["Product design", "Mobile", "Design system", "AI"],
-    cover: "/projects/raizz/cover.jpg",
     gradient: ["#3b4a2f", "#20271a"],
     featured: true,
     published: true,

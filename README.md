@@ -40,6 +40,27 @@ The `(case-studies)` folder is a route group: it gives every case study a shared
 2. Create `src/app/work/(case-studies)/<slug>/page.mdx` (copy an existing one).
 3. Put images in `public/projects/<slug>/` and reference them from `<Figure>`.
 
+## The interactive layer
+
+The site is built around a calm, natural "water" theme — inspired by
+[justmckissick.com](https://justmckissick.com) and
+[Zainab Kabira's portfolio](https://zainabkabira.com), each built around one
+strong personal metaphor. Pieces:
+
+| Piece | File |
+| --- | --- |
+| Drifting gradient background + pointer ripples | [src/components/water-background.tsx](src/components/water-background.tsx) |
+| Custom droplet cursor | [src/components/cursor.tsx](src/components/cursor.tsx) |
+| Scroll-reveal, magnetic buttons, rising scroll progress | [src/components/motion.tsx](src/components/motion.tsx) |
+| Hero headline animation + scroll cue | [src/components/hero.tsx](src/components/hero.tsx) |
+| Light "shallows" / dark "deep water" toggle | [src/components/theme.tsx](src/components/theme.tsx) |
+| Case-study title block + breakout `<Figure>` | [src/components/case-study.tsx](src/components/case-study.tsx) |
+
+Built with [Motion](https://motion.dev) (`motion/react`). Everything respects
+`prefers-reduced-motion` — animations still happen but shrink to ~0 duration,
+and the custom cursor / pointer ripples don't mount. Colors live as CSS custom
+properties in `globals.css`; swap `--accent`/`--background`/etc. to reskin.
+
 ## Still to do
 
 - [ ] **Résumé** — drop your PDF at `public/resume.pdf`. The nav/footer/about

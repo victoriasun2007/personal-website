@@ -2,20 +2,28 @@ import { Container } from "@/components/container";
 import { site } from "@/lib/site";
 
 export function SiteFooter() {
+  const links = [
+    ...site.socials,
+    ...(site.resumeUrl
+      ? [{ label: "Résumé", href: site.resumeUrl } as const]
+      : []),
+  ];
+
   return (
-    <footer className="mt-24 border-t border-border py-12">
-      <Container className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+    <footer className="relative z-10 mt-24 border-t border-border/60 py-14">
+      <Container className="flex flex-col gap-8 sm:flex-row sm:items-end sm:justify-between">
         <div>
-          <p className="text-sm font-semibold tracking-tight">{site.name}</p>
+          <p className="font-display text-lg text-foreground">{site.name}</p>
           <p className="text-sm text-muted">
             {site.role} · {site.location}
           </p>
         </div>
-        <div className="flex flex-wrap gap-x-5 gap-y-2 text-sm">
-          {site.socials.map((s) => (
+        <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm">
+          {links.map((s) => (
             <a
               key={s.label}
               href={s.href}
+              data-cursor="pool"
               className="text-muted transition-colors hover:text-foreground"
               target={s.href.startsWith("http") ? "_blank" : undefined}
               rel={s.href.startsWith("http") ? "noopener noreferrer" : undefined}
@@ -23,21 +31,11 @@ export function SiteFooter() {
               {s.label}
             </a>
           ))}
-          {site.resumeUrl ? (
-            <a
-              href={site.resumeUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-muted transition-colors hover:text-foreground"
-            >
-              Résumé
-            </a>
-          ) : null}
         </div>
       </Container>
-      <Container className="mt-8">
-        <p className="text-xs text-muted">
-          © {new Date().getFullYear()} {site.name}. Built with Next.js.
+      <Container className="mt-10">
+        <p className="font-mono text-[11px] uppercase tracking-[0.15em] text-muted/70">
+          © {new Date().getFullYear()} {site.name} — still water runs deep
         </p>
       </Container>
     </footer>
