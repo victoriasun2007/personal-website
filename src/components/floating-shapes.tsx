@@ -116,7 +116,9 @@ export function FloatingShapes() {
     const r = el.getBoundingClientRect();
     const vw = window.innerWidth;
     const vh = window.innerHeight;
-    const big = Math.min(220, vw * 0.6);
+    // Root font size grows on big screens; scale the popped shape with it.
+    const rem = parseFloat(getComputedStyle(document.documentElement).fontSize) / 16;
+    const big = Math.min(220 * rem, vw * 0.6);
     const sx = r.left + r.width / 2;
     const sy = r.top + r.height / 2;
     // Drift a little toward the middle of the screen — "coming closer" —
@@ -162,8 +164,9 @@ export function FloatingShapes() {
               onClick={(e) => pop(i, e.currentTarget)}
               className="block opacity-75 transition-opacity hover:opacity-100 focus-visible:opacity-100 focus-visible:outline-none dark:opacity-60"
               style={{
-                width: s.size,
-                height: s.size,
+                // rem, so the shapes scale with the root font size on big screens
+                width: `${s.size / 16}rem`,
+                height: `${s.size / 16}rem`,
                 visibility: open?.index === i ? "hidden" : "visible",
               }}
               animate={
@@ -218,7 +221,7 @@ export function FloatingShapes() {
                 className="absolute left-1/2 top-1/2 text-center font-display leading-tight text-[#1b2230]"
                 style={{
                   width: open.big * active.text.w,
-                  fontSize: 21,
+                  fontSize: "1.3125rem",
                   x: "-50%",
                   y: `calc(-50% + ${open.big * active.text.dy}px)`,
                 }}

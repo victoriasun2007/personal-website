@@ -17,11 +17,11 @@ export const site = {
   // Written on the floating hero shapes, in order: circle, star, flower,
   // heart, blob. Keep them short — they have to fit inside the shape.
   funFacts: [
-    "Varsity swimmer at CMU & Scholar All\u2011American",
+    "Competitive swimmer for 10+\u00a0years",
     "UIST 2026 co\u2011author",
-    "Open\u2011water certified",
-    "I speak Mandarin",
-    "I run Swim & Dive's Instagram",
+    "Self\u2011taught Gel\u2011X nail artist",
+    "Fluent in Chinese",
+    "Love exploring new things",
   ],
   socials: [
     { label: "Email", href: "mailto:victoria.sun.2007@gmail.com" },
