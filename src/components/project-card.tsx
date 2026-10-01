@@ -34,11 +34,11 @@ export function ProjectCard({
     stiffness: 150,
     damping: 18,
   });
-  const imgX = useSpring(useTransform(px, [-0.5, 0.5], [-14, 14]), {
+  const imgX = useSpring(useTransform(px, [-0.5, 0.5], [-8, 8]), {
     stiffness: 120,
     damping: 20,
   });
-  const imgY = useSpring(useTransform(py, [-0.5, 0.5], [-14, 14]), {
+  const imgY = useSpring(useTransform(py, [-0.5, 0.5], [-8, 8]), {
     stiffness: 120,
     damping: 20,
   });
@@ -74,9 +74,9 @@ export function ProjectCard({
           style={{ rotateX: rx, rotateY: ry, transformStyle: "preserve-3d" }}
           className="flex flex-col gap-4 rounded-2xl border border-border bg-surface/60 p-3 backdrop-blur-sm transition-colors duration-300 group-hover:border-accent/40"
         >
-          <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl">
+          <div className="relative aspect-[2/1] w-full overflow-hidden rounded-xl">
             <motion.div
-              style={{ x: imgX, y: imgY, scale: 1.08 }}
+              style={{ x: imgX, y: imgY, scale: 1.04 }}
               className="absolute inset-0"
             >
               {cover ? (

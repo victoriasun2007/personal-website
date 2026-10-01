@@ -15,7 +15,6 @@ export function SiteHeader() {
           <span className="bg-[linear-gradient(currentColor,currentColor)] bg-[length:0%_1px] bg-left-bottom bg-no-repeat pb-0.5 transition-[background-size] duration-300 group-hover:bg-[length:100%_1px]">
             {site.name}
           </span>
-          <span className="ml-2 font-normal text-muted">{site.role}</span>
         </Link>
         <nav className="flex items-center gap-5 text-sm sm:gap-6">
           {nav.map((item) => (
@@ -29,15 +28,13 @@ export function SiteHeader() {
             </Link>
           ))}
           {site.resumeUrl ? (
-            <a
-              href={site.resumeUrl}
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/resume"
               data-cursor="pool"
               className="text-muted transition-colors hover:text-foreground"
             >
               Résumé
-            </a>
+            </Link>
           ) : null}
           <ThemeToggle />
         </nav>

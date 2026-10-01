@@ -1,59 +1,18 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Container } from "@/components/container";
-import { Reveal, Magnetic } from "@/components/motion";
+import { Reveal } from "@/components/motion";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "About",
-  description: `About ${site.name} — ${site.role}, Carnegie Mellon.`,
+  description: `About ${site.name}, Information Systems + HCI at Carnegie Mellon.`,
 };
 
-const experience = [
-  {
-    role: "Product Design Intern",
-    org: "AxiLab",
-    period: "Summer 2026",
-    note: "Sole designer for a full redesign of the Raizz AI sleep app — 160+ screens across 7 feature areas — plus a scalable design system, a PRD for an AI daily-planning feature, and the marketing site front end.",
-  },
-  {
-    role: "Research Assistant",
-    org: "Computer-Supported Collaborative Learning, CMU",
-    period: "2026 – Present",
-    note: "Evaluating human–LLM disagreements in AI-based collaboration assessment: finding failure patterns, refining prompts, and measuring against human-reference baselines.",
-  },
-  {
-    role: "Research Assistant",
-    org: "Interactive Structures Lab, CMU",
-    period: "2025 – 2026",
-    note: "MetaBeads — shape- and stiffness-changing interfaces through beaded metamaterials. Co-author on a paper accepted to ACM UIST 2026.",
-  },
-  {
-    role: "Social Media Team",
-    org: "CMU Swim & Dive",
-    period: "2025 – Present",
-    note: "Content and planning for the team's Instagram.",
-  },
-];
-
-const skills = [
-  {
-    label: "Design & product",
-    items: [
-      "Figma",
-      "User research",
-      "Product management",
-      "PRDs",
-      "Design systems",
-      "Prototyping",
-      "Illustrator",
-      "Photoshop",
-      "InDesign",
-      "SketchUp",
-    ],
-  },
-  { label: "Engineering", items: ["Python", "Java", "SQL", "HTML / CSS", "R"] },
-  { label: "Languages", items: ["English", "Mandarin"] },
+const glance = [
+  { label: "Studying", value: "Information Systems + HCI at CMU" },
+  { label: "Previously", value: "Product Design at AxiLab" },
+  { label: "Currently", value: "Human–AI interaction research" },
 ];
 
 function SectionLabel({ children }: { children: string }) {
@@ -69,110 +28,53 @@ export default function AboutPage() {
     <section className="py-16 sm:py-24">
       <Container>
         <Reveal>
-          <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted">
-            About
-          </p>
-          <h1 className="mt-4 max-w-3xl font-display text-3xl leading-tight text-foreground sm:text-4xl">
-            Architect of small, careful decisions — and a swimmer.
+          <h1 className="max-w-3xl font-display text-3xl leading-tight text-foreground sm:text-4xl">
+            A little more about me
           </h1>
         </Reveal>
 
         <div className="mt-12 grid gap-14 sm:grid-cols-[1fr_1.3fr]">
           <Reveal className="space-y-4 text-muted">
-            <p>{site.intro}</p>
             <p>
-              I&apos;m a varsity swimmer at CMU and a 2026 CSCAA Scholar
-              All-American. A lot of how I work — long horizons, steady reps,
-              caring about the last 2% — comes from the pool. Open water is also
-              where my{" "}
-              <Link
-                href="/work/xr-safewear"
-                data-cursor="pool"
-                className="text-foreground underline-offset-4 hover:underline"
-              >
-                XR Safewear
-              </Link>{" "}
-              concept started.
+              I started with art. I loved painting and studied art in high
+              school, where I began exploring my own ideas through concept design
+              projects. Those projects became a way to connect something I
+              enjoyed with small problems I encountered in everyday life, turning
+              my ideas into concepts people could actually use.
             </p>
             <p>
-              Currently open to product design and PM internships. The fastest
-              way to reach me is{" "}
-              <a
-                href={`mailto:${site.email}`}
-                data-cursor="pool"
-                className="text-foreground underline-offset-4 hover:underline"
-              >
-                email
-              </a>
-              .
+              At Carnegie Mellon, I’ve been exploring that connection through
+              design, technology, and research. I still enjoy the creative part of
+              imagining what something could be, but I’m just as interested in
+              figuring out how to make it work and who it could help.
             </p>
           </Reveal>
 
-          <div className="space-y-14">
-            <Reveal>
-              <SectionLabel>Education</SectionLabel>
-              <div className="mt-5 border-t border-border pt-5">
-                <p className="font-medium">Carnegie Mellon University</p>
-                <p className="text-sm text-muted">
-                  B.S. Information Systems + additional major in Human-Computer
-                  Interaction · Expected 2029
-                </p>
-                <p className="mt-1 text-sm text-muted">
-                  Varsity Swimming · 2026 CSCAA Scholar All-American
-                </p>
-              </div>
-            </Reveal>
-
-            <Reveal>
-              <SectionLabel>Experience</SectionLabel>
-              <ul className="mt-5 divide-y divide-border border-t border-border">
-                {experience.map((job) => (
-                  <li key={`${job.org}-${job.period}`} className="py-5">
-                    <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between sm:gap-8">
-                      <p className="font-medium">
-                        {job.role}
-                        <span className="font-normal text-muted"> · {job.org}</span>
-                      </p>
-                      <p className="shrink-0 text-sm text-muted">{job.period}</p>
-                    </div>
-                    <p className="mt-1.5 text-sm text-muted">{job.note}</p>
-                  </li>
-                ))}
-              </ul>
-            </Reveal>
-
-            <Reveal>
-              <SectionLabel>Skills</SectionLabel>
-              <dl className="mt-5 space-y-4 border-t border-border pt-5">
-                {skills.map((group) => (
-                  <div key={group.label} className="sm:flex sm:gap-8">
-                    <dt className="w-32 shrink-0 text-sm text-muted">
-                      {group.label}
-                    </dt>
-                    <dd className="mt-1 text-sm sm:mt-0">
-                      {group.items.join(", ")}
-                    </dd>
-                  </div>
-                ))}
-              </dl>
-            </Reveal>
-
-            {site.resumeUrl ? (
-              <Reveal>
-                <Magnetic strength={0.2}>
-                  <a
-                    href={site.resumeUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    data-cursor="pool"
-                    className="inline-block rounded-full border border-border px-6 py-3 text-sm font-medium transition-colors hover:border-accent/50"
-                  >
-                    Download résumé (PDF)
-                  </a>
-                </Magnetic>
-              </Reveal>
-            ) : null}
-          </div>
+          <Reveal>
+            <SectionLabel>At a glance</SectionLabel>
+            <dl className="mt-5 divide-y divide-border border-t border-border">
+              {glance.map((row) => (
+                <div key={row.label} className="flex gap-6 py-4">
+                  <dt className="w-28 shrink-0 text-sm text-muted">{row.label}</dt>
+                  <dd>{row.value}</dd>
+                </div>
+              ))}
+              {site.resumeUrl ? (
+                <div className="flex gap-6 py-4">
+                  <dt className="w-28 shrink-0 text-sm text-muted">Link</dt>
+                  <dd>
+                    <Link
+                      href="/resume"
+                      data-cursor="pool"
+                      className="text-accent underline-offset-4 hover:underline"
+                    >
+                      View résumé →
+                    </Link>
+                  </dd>
+                </div>
+              ) : null}
+            </dl>
+          </Reveal>
         </div>
       </Container>
     </section>

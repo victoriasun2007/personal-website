@@ -3,15 +3,16 @@ import { CaseStudyHeader, Figure } from "@/components/case-study";
 export const metadata = {
   title: "Redesigning Raizz, an AI sleep app",
   description:
-    "A full mobile redesign for an AI sleep-tech startup — 160+ screens across 7 feature areas, plus a scalable design system.",
+    "A full mobile redesign for an AI sleep-tech startup: 160+ screens across 7 feature areas, plus a scalable design system.",
 };
 
 <CaseStudyHeader slug="raizz" />
 
-<div className="not-prose my-10 flex aspect-[2/1] w-full flex-col items-center justify-center gap-2 rounded-xl bg-gradient-to-br from-[#3b4a2f] to-[#20271a] text-center">
-  <span className="font-display text-2xl italic text-[#f4ede0]">raizz</span>
-  <span className="text-sm text-[#f4ede0]/70">Screens coming soon — exported from the working Figma file</span>
-</div>
+<Figure
+  src="/projects/raizz/cover.jpg"
+  alt="The redesigned Raizz app on three phones: the welcome screen, the Home dashboard, and the Explore sleep history"
+  priority
+/>
 
 > This case study has been adapted under NDA. Details have been changed to
 > protect confidential information while preserving the design process and
@@ -26,7 +27,7 @@ for the summer and owned design across the whole product.
 Over the internship I:
 
 - Redesigned the **Raizz** mobile app end to end and designed new features for
-  both the existing and redesigned apps — **160+ screens and states across 7
+  both the existing and redesigned apps: **160+ screens and states across 7
   feature areas and 25+ flows**.
 - Built a **scalable design system** so a small team could keep shipping
   consistently after I left.
@@ -58,9 +59,23 @@ I worked in three overlapping tracks:
 
 ## Design system
 
-A token-driven library — color, type, spacing, elevation — feeding a set of
+A token-driven library of color, type, spacing, and elevation, feeding a set of
 components documented for the two engineers who would maintain it. The redesign
 and the new features were both built entirely from it.
+
+## Selected screens
+
+<Figure
+  src="/projects/raizz/01-design-samples.jpg"
+  alt="Five redesigned screens: Home with the daily plan, a sleep-stage breakdown, Focus actions, Explore sleep history, and a manual-restart dialog"
+  caption="Core screens from the redesign. The daily plan, sleep stages, and history are all built from the same system."
+/>
+
+<Figure
+  src="/projects/raizz/02-design-samples.jpg"
+  alt="Sleep schedule and alarm screens, plus device management with connected, unpairing, and disconnected states"
+  caption="Settings flows, including every state of device management: connected, unpairing, and disconnected."
+/>
 
 ## Outcome
 

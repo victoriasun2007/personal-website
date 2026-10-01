@@ -3,13 +3,12 @@
 import { motion, useReducedMotion, useScroll, useTransform } from "motion/react";
 
 const line1 = "Victoria Sun";
-const line2 = ["product", "designer", "who", "likes", "still", "water."];
 
 export function HeroTitle() {
   const reduced = useReducedMotion();
 
   return (
-    <h1 className="mt-6 font-display text-foreground">
+    <h1 className="mt-4 font-display text-foreground">
       <span className="block text-5xl leading-[1.05] tracking-tight sm:text-7xl">
         {reduced ? (
           line1
@@ -23,23 +22,6 @@ export function HeroTitle() {
             {line1}
           </motion.span>
         )}
-      </span>
-      <span className="mt-2 block text-2xl italic text-muted sm:text-4xl">
-        {line2.map((word, i) => (
-          <motion.span
-            key={`${word}-${i}`}
-            className="mr-[0.28em] inline-block"
-            initial={reduced ? false : { opacity: 0, y: 14 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{
-              duration: 0.6,
-              delay: 0.35 + i * 0.07,
-              ease: [0.22, 1, 0.36, 1],
-            }}
-          >
-            {word}
-          </motion.span>
-        ))}
       </span>
     </h1>
   );

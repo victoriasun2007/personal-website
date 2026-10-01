@@ -59,8 +59,8 @@ export function Figure({
         <Image
           src={src}
           alt={alt}
-          width={2200}
-          height={1100}
+          width={2160}
+          height={1080}
           priority={priority}
           className="h-auto w-full rounded-xl border border-border bg-surface"
           sizes="(min-width: 1024px) 74vw, 100vw"

@@ -4,9 +4,9 @@ import { useEffect, useState } from "react";
 import { motion, useMotionValue, useSpring } from "motion/react";
 
 /**
- * A soft "water droplet" cursor with a lagging ring.
+ * A soft "water droplet" cursor dot. The background ripples do the rest.
  * Only mounts on fine pointers; hides the native cursor via a body class.
- * Grows over interactive elements (links, buttons, [data-cursor]).
+ * Swells over interactive elements (links, buttons, [data-cursor]).
  */
 export function Cursor() {
   const [enabled, setEnabled] = useState(false);
@@ -15,8 +15,6 @@ export function Cursor() {
 
   const x = useMotionValue(-100);
   const y = useMotionValue(-100);
-  const ringX = useSpring(x, { stiffness: 220, damping: 26, mass: 0.6 });
-  const ringY = useSpring(y, { stiffness: 220, damping: 26, mass: 0.6 });
   const dotX = useSpring(x, { stiffness: 900, damping: 40 });
   const dotY = useSpring(y, { stiffness: 900, damping: 40 });
 
@@ -65,22 +63,6 @@ export function Cursor() {
   return (
     <div aria-hidden className="pointer-events-none fixed inset-0 z-[100]">
       <motion.div
-        className="absolute rounded-full border border-accent/70"
-        style={{
-          x: ringX,
-          y: ringY,
-          width: 34,
-          height: 34,
-          marginLeft: -17,
-          marginTop: -17,
-        }}
-        animate={{
-          scale: down ? 0.7 : active ? 1.7 : 1,
-          opacity: active ? 1 : 0.6,
-        }}
-        transition={{ type: "spring", stiffness: 300, damping: 20 }}
-      />
-      <motion.div
         className="absolute rounded-full bg-accent"
         style={{
           x: dotX,
@@ -90,7 +72,10 @@ export function Cursor() {
           marginLeft: -3,
           marginTop: -3,
         }}
-        animate={{ scale: down ? 1.6 : active ? 0.4 : 1 }}
+        animate={{
+          scale: down ? 1.4 : active ? 2.6 : 1,
+          opacity: active ? 0.55 : 1,
+        }}
         transition={{ type: "spring", stiffness: 500, damping: 24 }}
       />
     </div>

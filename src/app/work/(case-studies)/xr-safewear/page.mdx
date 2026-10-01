@@ -1,7 +1,7 @@
 import { CaseStudyHeader, Figure } from "@/components/case-study";
 
 export const metadata = {
-  title: "XR Safewear — AR goggles for open-water swimming",
+  title: "XR Safewear: AR goggles for open-water swimming",
   description:
     "A concept for mixed-reality swim goggles that make open water feel safe: navigation, shark alerts, bone-conduction audio, and a heads-up display.",
 };
@@ -10,7 +10,7 @@ export const metadata = {
 
 <Figure
   src="/projects/xr-safewear/cover.jpg"
-  alt="XR Safewear concept — an underwater heads-up display showing navigation, a shark-nearby alert, and nearby swimmers"
+  alt="XR Safewear concept: an underwater heads-up display showing navigation, a shark-nearby alert, and nearby swimmers"
   priority
 />
 
@@ -19,7 +19,7 @@ export const metadata = {
 I've been a swimmer for over nine years, and open water still hands me new
 challenges every time. A lot of people never get past the fear of it at all.
 XR Safewear is a self-initiated concept for **mixed-reality swim goggles** that
-make open water feel navigable and safe — while making the swim itself more
+make open water feel navigable and safe, while making the swim itself more
 enjoyable.
 
 **How might we** give swimmers an entertaining experience while helping them
@@ -39,7 +39,7 @@ Three threads shaped the problem:
   difficulty when buoys are far apart or the water is dark, and long distances
   get monotonous.
 - **Safety is a real barrier.** Drowning is a leading cause of unintentional
-  injury death worldwide, and fear of what's in the water — sharks especially —
+  injury death worldwide, and fear of what's in the water (sharks especially)
   keeps people out even when the odds are tiny.
 - **The space is mostly built for athletes.** Existing products like FORM's
   smart goggles focus on training and performance, not on reassurance for
@@ -49,53 +49,47 @@ Three threads shaped the problem:
 
 <Figure
   src="/projects/xr-safewear/02-user-study.jpg"
-  alt="Two personas — a recreational swimmer and a competitive athlete — alongside four user-interview summaries and an empathy map"
-  caption="Two personas and four interviews spanning recreational swimmers, athletes, and non-swimmers."
+  alt="Two recreational-swimmer personas and four user-interview summaries, next to a user-journey map and a needs pyramid feeding a prioritized feature list"
+  caption="Personas and four interviews, then the swim journey mapped to find where features could earn their place."
 />
 
-I built personas for two audiences — recreational swimmers and
-athletes/professionals — and ran four interviews. What came through: people
+I built personas for two audiences, recreational swimmers and
+athletes/professionals, and ran four interviews. What came through: people
 want navigation help and a connection back to shore, they worry about losing
 contact with other people, and current music setups are "complex and tedious to
 wear."
 
 ## Ideation
 
-<Figure
-  src="/projects/xr-safewear/03-ideation.jpg"
-  alt="A user-journey map broken into scenarios, actions, tasks, feelings, and improvement opportunities, feeding a prioritized feature list"
-  caption="Mapping the swim journey to find where features could earn their place."
-/>
-
-Mapping the full journey — from checking conditions to getting out of the water
-— surfaced the feature set: **safety warnings, basic swim data, spatial
+Mapping the full journey, from checking conditions to getting out of the water,
+surfaced the feature set: **safety warnings, basic swim data, spatial
 navigation, seeing other swimmers, and music/entertainment.** The concept sits
 at the intersection of mixed reality, underwater audio, and safety.
 
 ## Product design
 
 <Figure
-  src="/projects/xr-safewear/04-product-design.jpg"
-  alt="Progression of hand sketches from two early goggle designs to a final annotated design with a mirror lens, interchangeable nose piece, AR display, adjustable strap, and bone-conduction headphones"
-  caption="From sketch exploration to a final form: mirror lens, AR display, adjustable silicone strap, and bone-conduction audio."
+  src="/projects/xr-safewear/03-product-design.jpg"
+  alt="Product ideation combining MR goggles, underwater audio, and swim safety, then sketches progressing from two early goggle designs to a final annotated design with a mirror lens, interchangeable nose piece, AR display, adjustable strap, and bone-conduction headphones"
+  caption="MR + underwater audio + safety, then from sketch exploration to a final form."
 />
 
 ## Interface
 
 <Figure
-  src="/projects/xr-safewear/05-ui-flows.jpg"
-  alt="Wireframe flows for the heads-up display: home, a radial menu, music, temperature, health, navigation, people nearby, and a shark-nearby danger alert"
-  caption="HUD flows — a glanceable home, a radial menu, and an escalating danger-alert sequence."
+  src="/projects/xr-safewear/04-render-and-ui.jpg"
+  alt="Product renders of the goggles in several colorways, next to wireframe flows for the heads-up display: home, menu, music, temperature, health, navigation, people nearby, and a shark-nearby danger alert"
+  caption="Product renders, and the HUD flows: a glanceable home, a gesture menu, and an escalating danger-alert sequence."
 />
 
 The interface is a heads-up display you control with small hand gestures. A
 calm home view shows time and vitals; a radial menu opens navigation, music,
 water and air temperature, health, and nearby swimmers. When a hazard is
-detected, a **Shark Nearby** alert takes over with a single clear instruction —
-_return to shore_ — and steps down as the danger passes.
+detected, a **Shark Nearby** alert takes over with a single clear instruction,
+_return to shore_, and steps down as the danger passes.
 
 <Figure
-  src="/projects/xr-safewear/06-visual-design.jpg"
+  src="/projects/xr-safewear/05-visual-design.jpg"
   alt="Final visual design of the AR interface rendered over an underwater background, showing navigation, music, health, and alert panels"
-  caption="Final visual design — translucent panels that stay readable against moving water."
+  caption="Final visual design: translucent panels that stay readable against moving water."
 />

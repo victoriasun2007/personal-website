@@ -48,7 +48,7 @@ export function WaterBackground() {
       const v = getComputedStyle(document.documentElement)
         .getPropertyValue("--glow")
         .trim();
-      return v || "22 137 155";
+      return v || "70 115 184";
     }
 
     function emit(x: number, y: number, strength: number) {
@@ -121,11 +121,11 @@ export function WaterBackground() {
       {/* base wash */}
       <div className="absolute inset-0 bg-background" />
       {/* drifting caustic blobs */}
-      <div className="absolute -left-[20vw] -top-[20vh] h-[70vh] w-[70vh] rounded-full bg-[radial-gradient(circle_at_center,rgb(var(--glow)/0.20),transparent_65%)] blur-2xl [animation:drift_26s_ease-in-out_infinite] motion-reduce:animate-none" />
-      <div className="absolute right-[-15vw] top-[10vh] h-[60vh] w-[60vh] rounded-full bg-[radial-gradient(circle_at_center,rgb(var(--glow)/0.14),transparent_60%)] blur-2xl [animation:drift_34s_ease-in-out_infinite_reverse] motion-reduce:animate-none" />
-      <div className="absolute bottom-[-25vh] left-[25vw] h-[75vh] w-[75vh] rounded-full bg-[radial-gradient(circle_at_center,rgb(var(--glow)/0.12),transparent_62%)] blur-3xl [animation:drift_30s_ease-in-out_infinite] motion-reduce:animate-none" />
+      <div className="absolute -left-[20vw] -top-[20vh] h-[70vh] w-[70vh] rounded-full bg-[radial-gradient(circle_at_center,rgb(var(--glow)/0.09),transparent_65%)] blur-2xl [animation:drift_26s_ease-in-out_infinite] motion-reduce:animate-none" />
+      <div className="absolute right-[-15vw] top-[10vh] h-[60vh] w-[60vh] rounded-full bg-[radial-gradient(circle_at_center,rgb(var(--glow)/0.07),transparent_60%)] blur-2xl [animation:drift_34s_ease-in-out_infinite_reverse] motion-reduce:animate-none" />
+      <div className="absolute bottom-[-25vh] left-[25vw] h-[75vh] w-[75vh] rounded-full bg-[radial-gradient(circle_at_center,rgb(var(--glow)/0.06),transparent_62%)] blur-3xl [animation:drift_30s_ease-in-out_infinite] motion-reduce:animate-none" />
       {/* horizon light */}
-      <div className="absolute inset-x-0 top-0 h-[45vh] bg-[linear-gradient(to_bottom,rgb(var(--glow)/0.10),transparent)]" />
+      <div className="absolute inset-x-0 top-0 h-[45vh] bg-[linear-gradient(to_bottom,rgb(var(--glow)/0.05),transparent)]" />
       <canvas ref={canvasRef} className="absolute inset-0 h-full w-full" />
     </div>
   );

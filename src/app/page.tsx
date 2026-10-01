@@ -3,36 +3,19 @@ import { Container } from "@/components/container";
 import { ProjectCard } from "@/components/project-card";
 import { Reveal, Magnetic } from "@/components/motion";
 import { HeroTitle, ScrollCue } from "@/components/hero";
+import { FloatingShapes } from "@/components/floating-shapes";
 import { featuredProjects } from "@/content/projects";
 import { site } from "@/lib/site";
-
-const asides = [
-  {
-    k: "In the water",
-    v: "Varsity swimmer at Carnegie Mellon and a 2026 CSCAA Scholar All-American. Open-water certified — it's where the XR Safewear idea came from.",
-  },
-  {
-    k: "Also studying",
-    v: "Human-Computer Interaction as a second major, plus the systems side: data structures, databases, experimental design.",
-  },
-  {
-    k: "Languages",
-    v: "English and Mandarin.",
-  },
-  {
-    k: "This site",
-    v: "Built with Next.js and a lot of small water-inspired details. Source is on request.",
-  },
-];
 
 export default function Home() {
   return (
     <>
       {/* Hero */}
       <section className="relative flex min-h-[88vh] items-center py-24">
+        <FloatingShapes />
         <Container>
           <Reveal>
-            <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted">
+            <p className="font-display text-xl italic text-muted sm:text-2xl">
               {site.role} · {site.location}
             </p>
           </Reveal>
@@ -41,10 +24,10 @@ export default function Home() {
 
           <Reveal delay={0.15}>
             <p className="mt-8 max-w-xl text-lg leading-relaxed text-muted">
-              I like the slow, careful part of product work — getting the problem
-              right before the pixels. Right now I&apos;m studying Information
-              Systems and HCI at Carnegie Mellon and designing across research,
-              interaction, and visual design.
+              I enjoy turning ideas into real, useful products, especially when
+              the work can make an impact on people’s lives. I study Information
+              Systems and HCI at Carnegie Mellon, and my work brings together
+              design, research, and technology.
             </p>
           </Reveal>
 
@@ -100,36 +83,12 @@ export default function Home() {
         </Container>
       </section>
 
-      {/* Asides */}
-      <section className="border-t border-border/60 py-16 sm:py-24">
-        <Container>
-          <Reveal>
-            <h2 className="font-display text-2xl italic text-foreground sm:text-3xl">
-              A few non-work things
-            </h2>
-          </Reveal>
-          <dl className="mt-10 grid gap-x-10 gap-y-8 sm:grid-cols-2">
-            {asides.map((a, i) => (
-              <Reveal key={a.k} delay={i * 0.06}>
-                <div className="border-t border-border pt-4">
-                  <dt className="font-mono text-xs uppercase tracking-[0.15em] text-accent">
-                    {a.k}
-                  </dt>
-                  <dd className="mt-2 text-muted">{a.v}</dd>
-                </div>
-              </Reveal>
-            ))}
-          </dl>
-        </Container>
-      </section>
-
       {/* Contact */}
       <section className="py-20 sm:py-28">
         <Container>
           <Reveal>
             <p className="font-display text-2xl leading-snug text-foreground sm:text-4xl">
-              Looking for product design or PM internships, and always happy to
-              talk about the work.
+              Looking for summer 2027 internships. I’d love to connect!
             </p>
           </Reveal>
           <Reveal delay={0.1}>

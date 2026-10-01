@@ -5,7 +5,7 @@ export function SiteFooter() {
   const links = [
     ...site.socials,
     ...(site.resumeUrl
-      ? [{ label: "Résumé", href: site.resumeUrl } as const]
+      ? [{ label: "Résumé", href: "/resume" } as const]
       : []),
   ];
 
@@ -35,7 +35,7 @@ export function SiteFooter() {
       </Container>
       <Container className="mt-10">
         <p className="font-mono text-[11px] uppercase tracking-[0.15em] text-muted/70">
-          © {new Date().getFullYear()} {site.name} — still water runs deep
+          © {new Date().getFullYear()} {site.name}
         </p>
       </Container>
     </footer>
